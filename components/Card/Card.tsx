@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardStyle, CardWrapper } from "./Card.styled";
 import { useSpring } from "react-spring";
-
+import Image from "next/image";
 const Card = ({ emoji }: { emoji: string }) => {
   const [flip, setFlip] = useState(false);
   const { transform, opacity } = useSpring({
@@ -11,12 +11,17 @@ const Card = ({ emoji }: { emoji: string }) => {
   });
 
   return (
-    <div onClick={() => setFlip((state) => !state)}>
+    <CardWrapper onClick={() => setFlip((state) => !state)}>
       <CardStyle
         face={"front"}
         style={{ opacity: opacity.to((o) => 1 - o), transform }}
       >
-        {emoji}
+        <Image
+          src="/react-logo.png"
+          layout="fill"
+          objectFit="contain"
+          alt={"react logo"}
+        />
       </CardStyle>
       <CardStyle
         face={"back"}
@@ -28,7 +33,7 @@ const Card = ({ emoji }: { emoji: string }) => {
       >
         {emoji}
       </CardStyle>
-    </div>
+    </CardWrapper>
   );
 };
 

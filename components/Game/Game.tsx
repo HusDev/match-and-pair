@@ -9,6 +9,21 @@ const Game = () => {
         <Card emoji={"😀"}></Card>
         <Card emoji={"😀"}></Card>
         <Card emoji={"😀"}></Card>
+
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
+        <Card emoji={"😀"}></Card>
       </Wrapper>
     </>
   );
