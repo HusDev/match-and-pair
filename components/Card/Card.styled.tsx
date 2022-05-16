@@ -29,9 +29,6 @@ const CardStyle = styled(a.div)`
   cursor: pointer;
   position: absolute;
   will-change: transform, opacity;
-  &:hover {
-    background-color: var(--color-teal-default);
-  }
 `;
 
 export { CardStyle, CardWrapper };

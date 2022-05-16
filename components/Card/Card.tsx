@@ -1,9 +1,17 @@
-import { useState } from "react";
 import { CardStyle, CardWrapper } from "./Card.styled";
 import { useSpring } from "react-spring";
 import Image from "next/image";
-const Card = ({ emoji }: { emoji: string }) => {
-  const [flip, setFlip] = useState(false);
+import { GameCard } from "../../gameMachine";
+
+const Card = ({
+  emoji,
+  selectCard,
+  flip,
+}: {
+  emoji: GameCard;
+  selectCard: any;
+  flip: boolean;
+}) => {
   const { transform, opacity } = useSpring({
     opacity: flip ? 1 : 0,
     transform: `perspective(600px) rotateY(${flip ? 180 : 0}deg)`,
@@ -11,7 +19,14 @@ const Card = ({ emoji }: { emoji: string }) => {
   });
 
   return (
-    <CardWrapper onClick={() => setFlip((state) => !state)}>
+    <CardWrapper
+      onClick={() => {
+        // TODO: Move this to xstate?
+        if (!emoji.collected) {
+          selectCard(emoji);
+        }
+      }}
+    >
       <CardStyle
         face={"front"}
         style={{ opacity: opacity.to((o) => 1 - o), transform }}
@@ -31,7 +46,7 @@ const Card = ({ emoji }: { emoji: string }) => {
           rotateY: "180deg",
         }}
       >
-        {emoji}
+        {emoji.type}
       </CardStyle>
     </CardWrapper>
   );
